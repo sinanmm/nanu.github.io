@@ -6,7 +6,7 @@
 <body>
     <h1>inte poochakutti nilun oru avva therte</h1>
 </body>
-</ht<!DOCTYPE html>
+</html><!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -23,7 +23,6 @@
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
   }
-
   .card {
     background: white;
     padding: 30px;
@@ -32,17 +31,18 @@
     width: 90%;
     max-width: 350px;
     animation: pop 1s ease;
-    z-index: 2;
   }
-
   @keyframes pop {
     0% { transform: scale(0.8); opacity: 0; }
     100% { transform: scale(1); opacity: 1; }
   }
-
-  h1 { color: #ff4d6d; }
-  p { font-size: 18px; color: #333; }
-
+  h1 {
+    color: #ff4d6d;
+  }
+  p {
+    font-size: 18px;
+    color: #333;
+  }
   button {
     margin-top: 20px;
     padding: 12px 25px;
@@ -53,84 +53,37 @@
     border-radius: 30px;
     cursor: pointer;
   }
-
-  /* Floating hearts */
   .heart {
     position: absolute;
+    color: #ff4d6d;
     font-size: 20px;
     animation: float 5s linear infinite;
   }
-
   @keyframes float {
     0% { transform: translateY(100vh); opacity: 1; }
     100% { transform: translateY(-10vh); opacity: 0; }
   }
 
-  /* 🐱 Cats animation */
-  .cats-wrap {
-    position: relative;
-    height: 80px;
+  /* 🐱 Cat kiss animation */
+  .cats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 50px;
     margin-top: 10px;
   }
-
-  .cat {
-    position: absolute;
-    font-size: 45px;
-    top: 15px;
+  .kiss {
+    animation: kiss 1.2s infinite;
   }
-
-  .cat.left {
-    left: 0;
-    animation: moveLeft 2s forwards;
-  }
-
-  .cat.right {
-    right: 0;
-    animation: moveRight 2s forwards;
-  }
-
-  @keyframes moveLeft {
-    to { left: 35%; }
-  }
-
-  @keyframes moveRight {
-    to { right: 35%; }
-  }
-
-  /* Hugging */
-  .hug {
-    font-size: 40px;
-    margin-top: 5px;
-    animation: hug 1.2s infinite;
-  }
-
-  @keyframes hug {
+  @keyframes kiss {
     0% { transform: scale(1); }
     50% { transform: scale(1.2); }
     100% { transform: scale(1); }
   }
-
-  /* Flying kiss */
-  .kiss {
-    position: absolute;
-    font-size: 25px;
-    animation: fly 2s infinite;
-    left: 50%;
-    top: 55%;
-  }
-
-  @keyframes fly {
-    0% { transform: translate(-50%, 0); opacity: 1; }
-    100% { transform: translate(-50%, -80px); opacity: 0; }
-  }
 </style>
 </head>
 <body>
-
-<!-- 🎵 Soft romantic music -->
-<audio id="music" autoplay loop>
-  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_5c9a08f6a3.mp3" type="audio/mpeg">
-</audio>
 
 <div class="card" id="page">
   <h1>Hey Nilu 💕</h1>
@@ -140,51 +93,39 @@
 
 <script>
 let page = 1;
-
 function nextPage() {
   const card = document.getElementById("page");
-
   if (page === 1) {
     card.innerHTML = `
       <h1>Just one question 😳</h1>
       <p>Did you smile<br>when you opened this? 😊</p>
       <button onclick="nextPage()">Maybe 😳</button>
     `;
-  } 
-  else if (page === 2) {
+  } else if (page === 2) {
     card.innerHTML = `
       <h1>Nilu ❤️</h1>
       <p>You are my favorite person<br>and my sweetest thought 💞</p>
       <button onclick="nextPage()">One last thing 💋</button>
     `;
-  } 
-  else {
+  } else {
     card.innerHTML = `
       <h1>😘</h1>
-
-      <div class="cats-wrap">
-        <div class="cat left">🐱</div>
-        <div class="cat right">🐱</div>
+      <div class="cats">
+        🐱 <span class="kiss">💋</span> 🐱
       </div>
-
-      <div class="hug">🤗</div>
-      <div class="kiss">💋</div>
-
-      <p>Two tiny cats,<br>hugging and kissing…</p>
-      <p>just like my heart wants to 💗</p>
+      <p>This is a cute little kiss<br>just for you 💗</p>
       <p>Happy Valentine’s Day 💘</p>
     `;
   }
   page++;
 }
 
-/* Floating hearts */
 function createHeart() {
   const heart = document.createElement("div");
   heart.className = "heart";
   heart.innerHTML = "💖";
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (15 + Math.random() * 20) + "px";
+  heart.style.fontSize = (20 + Math.random() * 20) + "px";
   document.body.appendChild(heart);
   setTimeout(() => heart.remove(), 5000);
 }
@@ -193,4 +134,3 @@ setInterval(createHeart, 400);
 
 </body>
 </html>
-ml>
